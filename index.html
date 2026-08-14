@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav-Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(18, 8, 54);
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            background-color: rgb(39, 9, 109);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            text-decoration: none;
+            color: rgb(34, 137, 221);
+            font-size: 1.08rem;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 120px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 1.5rem;
+            line-height: 1.4;
+
+        }
+
+        .righSection img {
+            width: 60%;
+
+        }
+
+        .profile-img {
+            width: 80%;
+            transform-style: preserve-3d;
+            will-change: transform;
+            perspective: 1000px;
+        }
+
+        .purple {
+            color: rgb(180, 140, 255);
+            font-weight: bold;
+        }
+
+        .developer {
+            color: white;
+        }
+
+        .typed-line {
+            font-size: 1.5rem;
+            color: rgb(180, 140, 255);
+            margin-top: 5px;
+        }
+
+        #element {
+            color: rgb(180, 140, 255);
+        }
+
+        .secondsection {
+            max-width: 80vw;
+            margin: 80px auto;
+        }
+
+        .secondsection h2 {
+            font-size: 2rem;
+            color: rgb(180, 140, 255);
+            margin-bottom: 45px;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid rgb(100, 70, 180);
+            padding-left: 35px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -45px;
+            top: 28px;
+            width: 16px;
+            height: 16px;
+            background: rgb(180, 140, 255);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgb(180, 140, 255);
+        }
+
+        .experience-card {
+            background: rgb(25, 13, 68);
+            border: 1px solid rgb(80, 55, 150);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(120, 80, 220, 0.25);
+        }
+
+        .current-job {
+            border-color: rgb(180, 140, 255);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .experience-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .experience-header h4 {
+            color: rgb(180, 140, 255);
+            font-weight: normal;
+        }
+
+        .experience-header span {
+            color: rgb(180, 140, 255);
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .experience-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+        }
+
+        .experience-card li {
+            margin: 9px 0;
+            line-height: 1.5;
+        }
+
+        .skills {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills span {
+            background: rgb(45, 25, 100);
+            color: rgb(190, 160, 255);
+            border: 1px solid rgb(100, 70, 180);
+            border-radius: 20px;
+            padding: 7px 14px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skills span:hover {
+            background: rgb(180, 140, 255);
+            color: rgb(18, 8, 54);
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgb(180, 140, 255);
+        }
+
+        .footer {
+            background: rgb(25, 13, 68);
+            border-top: 1px solid rgb(80, 55, 150);
+            margin-top: 100px;
+            padding: 50px 8% 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand h2 {
+            color: rgb(180, 140, 255);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-links,
+        .footer-connect {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links h3,
+        .footer-connect h3 {
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .footer-links a,
+        .footer-connect a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-connect a:hover {
+            color: rgb(180, 140, 255);
+            transform: translateX(5px);
+        }
+
+        .footer-line {
+            height: 1px;
+            background-color: rgb(80, 55, 150);
+            margin: 35px 0 20px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            color: rgb(180, 140, 255);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-to-top:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .aboutSection {
+            width: 80%;
+            margin: 100px auto;
+            padding: 50px 0;
+        }
+
+        .aboutSection h2 {
+            font-size: 2rem;
+            color: rgb(180, 140, 255);
+            margin-bottom: 30px;
+        }
+
+        .aboutContent {
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        .aboutContent p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(100, 70, 180);
+            border-radius: 50%;
+            color: rgb(180, 140, 255);
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: rgb(180, 140, 255);
+            color: rgb(18, 8, 54);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgb(180, 140, 255);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Gaurav's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="">Skills</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi My Name is <span class="purple">Gaurav Bansal</span>
+
+                <div>and I am a</div>
+
+                <div class="typed-line">
+                    <span id="element"></span>
+                </div>
+            </div>
+            <div class="righSection">
+                <img src="images/img2.png" class="profile-img">
+
+            </div>
+        </section>
+
+        <hr class="line">
+        <section class="secondsection">
+            <h2>Work Experience</h2>
+
+            <div class="timeline">
+
+                <!-- Current Job -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="experience-card current-job">
+
+                        <div class="experience-header">
+                            <div>
+                                <h3>Jr. System Engineer – Linux</h3>
+                                <h4>Mannash Solution Pvt. Ltd.</h4>
+                            </div>
+
+                            <span>Aug 2025 – Present</span>
+                        </div>
+
+                        <p class="experience-description">
+                            Working on Linux production server monitoring, application
+                            support, troubleshooting and operational activities.
+                        </p>
+
+                        <h5>Key Responsibilities</h5>
+
+                        <ul>
+                            <li>Linux production server monitoring and support.</li>
+                            <li>Application and system log analysis.</li>
+                            <li>Troubleshooting server, application and connectivity issues.</li>
+                            <li>MySQL queries and database-related support.</li>
+                            <li>Production issue investigation and resolution.</li>
+                        </ul>
+
+                        <div class="skills">
+                            <span>Linux</span>
+                            <span>RHEL</span>
+                            <span>MySQL</span>
+                            <span>Shell Scripting</span>
+                            <span>Log Analysis</span>
+                            <span>Server Management</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Full Stack Internship -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="experience-card">
+
+                        <div class="experience-header">
+                            <div>
+                                <h3>Full Stack Web Development Intern</h3>
+                                <h4>Excellence Technology Hamirpur</h4>
+                            </div>
+
+                            <span>Jul 2025 – Aug 2025</span>
+                        </div>
+
+                        <p class="experience-description">
+                            Gained hands-on experience in full-stack web development
+                            and worked with front-end and back-end technologies.
+                        </p>
+
+                        <h5>Key Responsibilities</h5>
+
+                        <ul>
+                            <li>Worked with HTML, CSS and JavaScript.</li>
+                            <li>Developed and worked on web-based applications.</li>
+                            <li>Gained understanding of front-end and basic back-end technologies.</li>
+                        </ul>
+
+                        <div class="skills">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Web Development</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Python Internship -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="experience-card">
+
+                        <div class="experience-header">
+                            <div>
+                                <h3>Python Intern</h3>
+                                <h4>Pisoft-Informatics Pvt. Ltd.</h4>
+                            </div>
+
+                            <span>Jan 10 – Jan 28</span>
+                        </div>
+
+                        <p class="experience-description">
+                            Completed an internship focused on Python programming
+                            with practical experience in coding and debugging.
+                        </p>
+
+                        <h5>Key Responsibilities</h5>
+
+                        <ul>
+                            <li>Worked on Python programming tasks.</li>
+                            <li>Practiced writing and debugging Python code.</li>
+                            <li>Gained hands-on programming experience.</li>
+                        </ul>
+
+                        <div class="skills">
+                            <span>Python</span>
+                            <span>Programming</span>
+                            <span>Debugging</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <h2>Gaurav's Portfolio</h2>
+                <p>
+                    Jr. System Engineer – Linux
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="#">Skills</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact Me</a>
+            </div>
+
+            <div class="footer-connect">
+                <h3>Connect With Me</h3>
+
+                <div class="social-icons">
+
+                    <a href="https://github.com/YOUR_USERNAME" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/YOUR_USERNAME/" target="_blank" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/_.gaurav._420/" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="mailto:gouravbansal764@gmail.com" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-line"></div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Gaurav Bansal. All Rights Reserved.</p>
+
+            <a href="#" class="back-to-top">↑ Back to Top</a>
+        </div>
+
+    </footer>
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'System Engineer-Linux', 'Linux Engineer'],
+            typeSpeed: 80,
+            backSpeed: 50,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".profile-img", {
+            scrollTrigger: {
+                trigger: ".firstSection",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            },
+            rotationY: 360,
+            rotationX: 15,
+            scale: 1.1,
+            y: -80,
+            ease: "none"
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - Gaurav Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: rgb(18, 8, 54);
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            background: rgb(39, 9, 109);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: rgb(34, 137, 221);
+            font-size: 1.08rem;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+
+        /* ABOUT HERO */
+
+        .about-section {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 10%;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .small-title {
+            color: rgb(180, 140, 255);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .about-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text h1 span {
+            color: rgb(180, 140, 255);
+        }
+
+        .about-text p {
+            color: #d2d2d2;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+
+
+        /* ABOUT CARD */
+
+        .about-card {
+            width: 360px;
+            padding: 35px;
+            border-radius: 20px;
+            background: rgb(25, 13, 68);
+            border: 1px solid rgb(90, 65, 160);
+            box-shadow: 0 0 35px rgba(100, 70, 200, 0.15);
+            transition: 0.4s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 15px 40px rgba(120, 80, 220, 0.3);
+        }
+
+        .card-top {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            margin: auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(45, 25, 100);
+            border: 2px solid rgb(180, 140, 255);
+            color: rgb(180, 140, 255);
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 0 25px rgba(180, 140, 255, 0.4);
+        }
+
+        .card-top h2 {
+            margin-top: 15px;
+        }
+
+        .card-top p {
+            color: rgb(180, 140, 255);
+            margin-top: 7px;
+        }
+
+        .info {
+            border-top: 1px solid rgb(70, 50, 130);
+            padding-top: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .info-row span:first-child {
+            color: #999;
+        }
+
+        .info-row span:last-child {
+            color: white;
+            text-align: right;
+        }
+
+
+        /* WHAT I DO */
+
+        .section {
+            max-width: 1100px;
+            margin: 100px auto;
+            padding: 0 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: rgb(180, 140, 255);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: rgb(25, 13, 68);
+            border: 1px solid rgb(80, 55, 150);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgb(180, 140, 255);
+            box-shadow: 0 10px 25px rgba(120, 80, 220, 0.25);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: rgb(180, 140, 255);
+        }
+
+        .service-card p {
+            color: #bbb;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+
+        /* CAREER JOURNEY */
+
+        .journey {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .journey-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding: 20px 25px;
+            background: rgb(25, 13, 68);
+            border: 1px solid rgb(80, 55, 150);
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .journey-item:hover {
+            transform: translateX(8px);
+            border-color: rgb(180, 140, 255);
+        }
+
+        .journey-number {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(45, 25, 100);
+            border: 1px solid rgb(180, 140, 255);
+            color: rgb(180, 140, 255);
+            font-weight: bold;
+        }
+
+        .journey-content h3 {
+            margin-bottom: 6px;
+        }
+
+        .journey-content p {
+            color: #aaa;
+        }
+
+
+        /* CURRENT FOCUS */
+
+        .focus-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px;
+            text-align: center;
+            border-radius: 18px;
+            background: rgb(25, 13, 68);
+            border: 1px solid rgb(100, 70, 180);
+            box-shadow: 0 0 30px rgba(120, 80, 220, 0.15);
+        }
+
+        .focus-box p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .focus-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .focus-tags span {
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgb(45, 25, 100);
+            border: 1px solid rgb(100, 70, 180);
+            color: rgb(190, 160, 255);
+            transition: 0.3s;
+        }
+
+        .focus-tags span:hover {
+            background: rgb(180, 140, 255);
+            color: rgb(18, 8, 54);
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgb(180, 140, 255);
+        }
+
+
+        /* CAREER GOAL */
+
+        .goal {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .goal p {
+            color: #ccc;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: rgb(25, 13, 68);
+            border-top: 1px solid rgb(80, 55, 150);
+            margin-top: 100px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            color: rgb(180, 140, 255);
+            text-decoration: none;
+        }
+
+        .back-home:hover {
+            color: white;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text h1 {
+                font-size: 2.3rem;
+            }
+
+            .about-card {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 10px;
+            }
+
+            nav ul li {
+                margin: 0 6px;
+            }
+
+            .left {
+                font-size: 1.1rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                padding: 60px 20px;
+            }
+
+            .journey-item {
+                padding: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <nav>
+
+            <div class="left">
+                Gaurav's Portfolio
+            </div>
+
+            <div class="right">
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">HOME</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html">Skills</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html">Projects</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html">Contact ME</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ABOUT INTRO -->
+
+        <section class="about-section">
+
+            <div class="about-container">
+
+                <div class="about-text">
+
+                    <div class="small-title">
+                        GET TO KNOW ME
+                    </div>
+
+                    <h1>
+                        About <span>Me</span>
+                    </h1>
+
+                    <p>
+                        Hi, I'm Gaurav Bansal, a Jr. System Engineer
+                        specializing in Linux and production support.
+                    </p>
+
+                    <p>
+                        I work with Linux servers, server monitoring,
+                        log analysis, troubleshooting, incident handling
+                        and scripting.
+                    </p>
+
+                    <p>
+                        Along with system engineering, I also have an
+                        interest in Web Development and enjoy building
+                        projects while continuously learning new
+                        technologies.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <div class="card-top">
+
+                        <div class="avatar">
+                            GB
+                        </div>
+
+                        <h2>Gaurav Bansal</h2>
+
+                        <p>Jr. System Engineer – Linux</p>
+
+                    </div>
+
+                    <div class="info">
+
+                        <div class="info-row">
+                            <span>Role</span>
+                            <span>System Engineer</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Specialization</span>
+                            <span>Linux</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Focus</span>
+                            <span>Production Support</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Interests</span>
+                            <span>Web Development</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT I DO -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <h2>What I Do</h2>
+
+                <p>
+                    Areas I work and enjoy working in
+                </p>
+
+            </div>
+
+
+            <div class="services">
+
+                <div class="service-card">
+
+                    <div class="service-icon">🖥️</div>
+
+                    <h3>Linux</h3>
+
+                    <p>
+                        Linux server management,
+                        monitoring and production support.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🔍</div>
+
+                    <h3>Log Analysis</h3>
+
+                    <p>
+                        Analyzing system and application
+                        logs for troubleshooting.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🛠️</div>
+
+                    <h3>Incident Handling</h3>
+
+                    <p>
+                        Investigating issues and supporting
+                        production incident resolution.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">💻</div>
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Building web projects using modern
+                        front-end technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAREER JOURNEY -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <h2>My Journey</h2>
+
+                <p>
+                    A quick look at my professional journey
+                </p>
+
+            </div>
+
+
+            <div class="journey">
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        01
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>Diploma in Computer Engineering</h3>
+
+                        <p>
+                            Built a foundation in computer engineering,
+                            programming and technology.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        02
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>Python Internship</h3>
+
+                        <p>
+                            Gained practical experience with Python
+                            programming and debugging.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        03
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>Full Stack Web Development Internship</h3>
+
+                        <p>
+                            Worked with web technologies and
+                            developed practical web projects.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        04
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>Jr. System Engineer – Linux</h3>
+
+                        <p>
+                            Working with Linux servers, monitoring,
+                            troubleshooting and production support.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURRENT FOCUS -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <h2>Current Focus</h2>
+
+                <p>
+                    What I'm currently working towards
+                </p>
+
+            </div>
+
+
+            <div class="focus-box">
+
+                <p>
+                    Currently focusing on improving my Linux system
+                    administration, production support, automation
+                    and Web Development skills while continuously
+                    learning new technologies.
+                </p>
+
+                <div class="focus-tags">
+
+                    <span>Linux</span>
+                    <span>Server Management</span>
+                    <span>Automation</span>
+                    <span>Shell Scripting</span>
+                    <span>Web Development</span>
+                    <span>MySQL</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAREER GOAL -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <h2>Career Goal</h2>
+
+            </div>
+
+            <div class="goal">
+
+                <p>
+                    My goal is to grow as a skilled System Engineer
+                    while expanding my knowledge in Linux, automation,
+                    cloud technologies and software development.
+                    I aim to continuously improve my technical skills
+                    and contribute effectively to real-world projects.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Gaurav Bansal. All Rights Reserved.
+        </p>
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </footer>
+
+</body>
+
+</html>
